@@ -3,8 +3,8 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class SupabaseService {
   static Future<void> initializeSupabase() async {
     await Supabase.initialize(
-      url: 'https://ownuwkoxpaawhmlvjdtz.supabase.co',
-      anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im93bnV3a294cGFhd2htbHZqZHR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTczMzE4NzEsImV4cCI6MjAzMjkwNzg3MX0.RxugdfGKcBrw1Oeu8uYS_r6mAJDbEQmbVkcWGst3dPI',
+      url: 'https://xflffrnsyxqttkkafeeh.supabase.co',
+      anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhmbGZmcm5zeXhxdHRra2FmZWVoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTUwNjI5NDQsImV4cCI6MjAzMDYzODk0NH0.5r_yEdy864eMV_Pd1u4UGyloThV8ORx6ftLur8XOVpA',
     );
   }
 
@@ -13,20 +13,6 @@ class SupabaseService {
         .from('member')
         .stream(primaryKey: ['member_id']);
     return userStream;
-  }
-
-    static Future<void> addUser(
-      String email, String firstName, String password, int homeId) async {
-    final response = await Supabase.instance.client.from('member').insert({
-      'email': email,
-      'name': firstName,
-      'password': password,
-      'home_id': homeId,
-    }).select();
-
-    // if (response.error != null) {
-    //   throw response.error!;
-    // }
   }
 
 
